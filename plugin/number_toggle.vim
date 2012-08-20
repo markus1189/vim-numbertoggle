@@ -1,5 +1,5 @@
 " Prevent multi loads and disable in compatible mode
-" check if vim version is at least 7.3 
+" check if vim version is at least 7.3
 " (relativenumber is not supported below)
 if exists('g:loaded_numbertoggle') || &cp || v:version < 703
   finish
@@ -19,6 +19,9 @@ endfunc
 " when the focus is regained.
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
+
+" Start with absolute numbers when entering buffers
+autocmd BufEnter * :set number
 
 " Switch to absolute line numbers when entering insert mode and switch back to
 " relative line numbers when switching back to normal mode.
